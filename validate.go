@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/miekg/dns"
+	"github.com/miekg/dns/dnsutil"
 )
 
 var (
@@ -58,10 +58,7 @@ func initSensitiveWords(sourceName string) (int64, error) {
 // IsValidated 验证doi是否包含敏感词，如果包含敏感词，不让注册
 func IsValidated(ctx context.Context, doi string, zone string) bool {
 	// 首先doi删除zone的部分
-	fqdnName := dns.Fqdn(strings.ToLower(doi))
-	doiPre := strings.TrimSuffix(fqdnName, "."+dns.Fqdn(strings.ToLower(zone)))
-
 	// 查看doiPre是否命中敏感词，命中返回false，未命中返回true
-	_, ok := validateMap.Load(doiPre)
+	_, ok := validateMap.Load(dnsutil.TrimDomainName(doi, zone))
 	return !ok
 }

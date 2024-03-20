@@ -2,9 +2,8 @@ package dis_doi
 
 import (
 	"context"
-	"strings"
 
-	"github.com/miekg/dns"
+	"github.com/miekg/dns/dnsutil"
 )
 
 // IsReserved 判断DOI是否是被保存的，只有某种情况下才可以注册
@@ -12,9 +11,6 @@ import (
 // 然后判断剩下的部分是否是6位以下，如果小于等于6位，则返回true
 func IsReserved(ctx context.Context, doi string, zone string) bool {
 	// 首先doi删除zone的部分
-	fqdnName := dns.Fqdn(strings.ToLower(doi))
-	doiPre := strings.TrimSuffix(fqdnName, "."+dns.Fqdn(strings.ToLower(zone)))
-
 	// 策略1，如果小于6位，返回true
-	return len(doiPre) <= 6
+	return len(dnsutil.TrimDomainName(doi, zone)) <= 6
 }
