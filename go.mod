@@ -1,6 +1,6 @@
 module github.com/fuxi-inc/dis-doi
 
-go 1.21.6
+go 1.18
 
 require github.com/miekg/dns v1.1.58
 
