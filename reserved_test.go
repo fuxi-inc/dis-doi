@@ -6,6 +6,7 @@ import (
 )
 
 func TestIsReserved(t *testing.T) {
+	initWhiteList("whitelist")
 	type args struct {
 		ctx  context.Context
 		doi  string
@@ -30,6 +31,15 @@ func TestIsReserved(t *testing.T) {
 			args{
 				context.Background(),
 				"testfill.viv.cn.",
+				"viv.cn",
+			},
+			false,
+		},
+		{
+			"not-re",
+			args{
+				context.Background(),
+				"zhiku.viv.cn.",
 				"viv.cn",
 			},
 			false,

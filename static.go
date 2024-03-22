@@ -2,6 +2,7 @@
 // sources:
 // sensitive_words
 // sensitive_words_test
+// whitelist
 package dis_doi
 
 import (
@@ -118,6 +119,26 @@ func sensitive_words_test() (*asset, error) {
 	return a, nil
 }
 
+var _whitelist = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xaa\xca\xc8\xcc\x2e\x05\x04\x00\x00\xff\xff\xef\x17\xb2\x6a\x05\x00\x00\x00")
+
+func whitelistBytes() ([]byte, error) {
+	return bindataRead(
+		_whitelist,
+		"whitelist",
+	)
+}
+
+func whitelist() (*asset, error) {
+	bytes, err := whitelistBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "whitelist", size: 5, mode: os.FileMode(420), modTime: time.Unix(1711078202, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
 // Asset loads and returns the asset for the given name.
 // It returns an error if the asset could not be found or
 // could not be loaded.
@@ -172,6 +193,7 @@ func AssetNames() []string {
 var _bindata = map[string]func() (*asset, error){
 	"sensitive_words":      sensitive_words,
 	"sensitive_words_test": sensitive_words_test,
+	"whitelist":            whitelist,
 }
 
 // AssetDir returns the file names below a certain
@@ -219,6 +241,7 @@ type bintree struct {
 var _bintree = &bintree{nil, map[string]*bintree{
 	"sensitive_words":      &bintree{sensitive_words, map[string]*bintree{}},
 	"sensitive_words_test": &bintree{sensitive_words_test, map[string]*bintree{}},
+	"whitelist":            &bintree{whitelist, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory
