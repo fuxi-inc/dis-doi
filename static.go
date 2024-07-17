@@ -119,7 +119,7 @@ func sensitive_words_test() (*asset, error) {
 	return a, nil
 }
 
-var _whitelist = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xaa\xca\xc8\xcc\x2e\x05\x04\x00\x00\xff\xff\xef\x17\xb2\x6a\x05\x00\x00\x00")
+var _whitelist = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xaa\xca\xc8\xcc\x2e\xe5\x4a\x2b\xad\xc8\x04\x04\x00\x00\xff\xff\xa1\x51\xef\x2d\x0a\x00\x00\x00")
 
 func whitelistBytes() ([]byte, error) {
 	return bindataRead(
@@ -134,7 +134,7 @@ func whitelist() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "whitelist", size: 5, mode: os.FileMode(420), modTime: time.Unix(1711078202, 0)}
+	info := bindataFileInfo{name: "whitelist", size: 10, mode: os.FileMode(420), modTime: time.Unix(1721180002, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -200,13 +200,11 @@ var _bindata = map[string]func() (*asset, error){
 // directory embedded in the file by go-bindata.
 // For example if you run go-bindata on data/... and data contains the
 // following hierarchy:
-//
-//	data/
-//	  foo.txt
-//	  img/
-//	    a.png
-//	    b.png
-//
+//     data/
+//       foo.txt
+//       img/
+//         a.png
+//         b.png
 // then AssetDir("data") would return []string{"foo.txt", "img"}
 // AssetDir("data/img") would return []string{"a.png", "b.png"}
 // AssetDir("foo.txt") and AssetDir("notexist") would return an error

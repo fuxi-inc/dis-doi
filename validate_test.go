@@ -98,6 +98,15 @@ func TestIsValidated(t *testing.T) {
 			},
 			true,
 		},
+		{
+			"should-not-hit",
+			args{
+				context.Background(),
+				"kxz34m03uc.viv.cn.",
+				"viv.cn.",
+			},
+			true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
