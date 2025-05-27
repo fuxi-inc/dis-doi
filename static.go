@@ -119,7 +119,7 @@ func sensitive_words_test() (*asset, error) {
 	return a, nil
 }
 
-var _whitelist = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xaa\xca\xc8\xcc\x2e\xe5\x4a\x2b\xad\xc8\x04\x04\x00\x00\xff\xff\xa1\x51\xef\x2d\x0a\x00\x00\x00")
+var _whitelist = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xaa\xca\xc8\xcc\x2e\xe5\x4a\x2b\xad\xc8\xe4\xca\x2c\x4e\x4e\x29\x49\x01\x04\x00\x00\xff\xff\x7a\x42\x86\x11\x11\x00\x00\x00")
 
 func whitelistBytes() ([]byte, error) {
 	return bindataRead(
@@ -134,7 +134,7 @@ func whitelist() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "whitelist", size: 10, mode: os.FileMode(420), modTime: time.Unix(1721180002, 0)}
+	info := bindataFileInfo{name: "whitelist", size: 17, mode: os.FileMode(420), modTime: time.Unix(1748335023, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
